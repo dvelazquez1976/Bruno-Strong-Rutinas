@@ -52,7 +52,7 @@ select {
 /* Cronómetro y botones */
 .timer-controls {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reducido para acercar a los nuevos botones */
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -95,9 +95,28 @@ button:disabled {
     color: white;
 }
 
+/* --- NUEVOS ESTILOS PARA GESTIÓN DE DATOS --- */
+.data-management {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0 25px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
+}
 
-/* --- NUEVOS ESTILOS PARA CIRCUITOS Y SERIES --- */
+.data-management button {
+    background-color: #6c757d;
+    color: white;
+    font-size: 14px;
+    padding: 8px 15px;
+}
 
+.data-management button:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para circuitos y series */
 .circuit-block {
     background-color: #fdfdfd;
     border: 1px solid #eee;
@@ -167,10 +186,4 @@ input[type="number"] {
     font-size: 15px;
     text-align: center;
     box-sizing: border-box;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
