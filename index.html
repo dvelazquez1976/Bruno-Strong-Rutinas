@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Entrenamiento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mi Registro de Entrenamiento</h1>
+
+        <div class="selection-box">
+            <label for="routine-select">Elige tu rutina para hoy:</label>
+            <select id="routine-select">
+                <option value="">-- Selecciona una rutina --</option>
+            </select>
+        </div>
+
+        <div class="timer-controls">
+            <div id="timer-display">00:00</div>
+            <div class="button-group">
+                <button id="start-btn" disabled>▶ Iniciar Rutina</button>
+                <button id="finish-btn" disabled>■ Terminar Rutina</button>
+            </div>
+        </div>
+
+        <div id="exercise-display">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
