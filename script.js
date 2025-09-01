@@ -127,10 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             circuit.exercises.forEach(exercise => {
                 const exerciseName = exercise.name;
+                const exerciseReps = exercise.reps;
                 const exerciseBlock = document.createElement('div');
                 exerciseBlock.className = 'exercise-block';
                 exerciseBlock.dataset.exerciseName = exerciseName;
-                let setsGridHTML = `<div class="exercise-name">${exerciseName}</div>
+                let setsGridHTML = `<div class="exercise-name">${exerciseName} (${exerciseReps})</div>
                                     <div class="sets-grid">
                                         <div class="grid-header">Serie</div><div class="grid-header">Reps</div>
                                         <div class="grid-header">Carga (kg)</div><div class="grid-header">Anterior</div>`;
