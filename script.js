@@ -125,7 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
             circuitBlock.className = 'circuit-block';
             circuitBlock.innerHTML = `<h2 class="circuit-title">${circuit.groupName}</h2>`;
 
-            circuit.exercises.forEach(exerciseName => {
+            circuit.exercises.forEach(exercise => {
+                const exerciseName = exercise.name;
                 const exerciseBlock = document.createElement('div');
                 exerciseBlock.className = 'exercise-block';
                 exerciseBlock.dataset.exerciseName = exerciseName;
