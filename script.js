@@ -184,4 +184,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function pad(number) { return number < 10 ? '0' + number : number; }
+
+    function resetRoutine() {
+        routineSelect.value = '';
+        displayExercises('');
+        stopTimer();
+        resetTimerDisplay();
+        startBtn.disabled = true;
+        finishBtn.disabled = true;
+        routineSelect.disabled = false;
+    }
 });
