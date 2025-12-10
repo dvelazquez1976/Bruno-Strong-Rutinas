@@ -4,36 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Entrenamiento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Mi Registro de Entrenamiento</h1>
+    <div class="main-container">
+        <header class="app-header">
+            <h1><i class="fas fa-dumbbell"></i> Registro de Entrenamiento</h1>
+        </header>
 
-        <div class="selection-box">
-            <label for="routine-select">Elige tu rutina para hoy:</label>
-            <select id="routine-select">
-                <option value="">-- Selecciona una rutina --</option>
-            </select>
-        </div>
+        <div class="dashboard">
+            <div class="control-panel">
+                <div class="selection-area">
+                    <label for="routine-select" class="panel-label">Rutina de hoy</label>
+                    <div class="select-wrapper">
+                        <select id="routine-select">
+                            <option value="">Selecciona una rutina...</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
 
-        <div class="timer-controls">
-            <div id="timer-display">00:00</div>
-            <div class="button-group">
-                <button id="start-btn" disabled>▶ Iniciar Rutina</button>
-                <button id="finish-btn" disabled>■ Terminar Rutina</button>
+                <div class="timer-area">
+                    <div id="timer-display">00:00</div>
+                    <div class="timer-buttons">
+                        <button id="start-btn" class="btn btn-success" disabled>
+                            <i class="fas fa-play"></i> Iniciar
+                        </button>
+                        <button id="finish-btn" class="btn btn-danger" disabled>
+                            <i class="fas fa-flag-checkered"></i> Terminar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="actions-area">
+                    <button id="import-btn" class="btn btn-icon" title="Importar Datos">
+                        <i class="fas fa-file-import"></i>
+                    </button>
+                    <button id="export-btn" class="btn btn-icon" title="Exportar Datos">
+                        <i class="fas fa-file-export"></i>
+                    </button>
+                    <button id="reset-btn" class="btn btn-icon" title="Reiniciar">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <input type="file" id="file-input" accept=".json" style="display: none;">
+                </div>
             </div>
         </div>
 
-        <div class="data-management">
-            <button id="import-btn">📥 Importar Datos</button>
-            <button id="export-btn">📤 Exportar Datos</button>
-            <button id="reset-btn">🔄 Reiniciar</button> <!-- Botón de reinicio añadido -->
-            <input type="file" id="file-input" accept=".json" style="display: none;">
-        </div>
-        <div id="exercise-display">
+        <div id="exercise-display" class="exercises-container">
+            <div class="placeholder-message">
+                <i class="fas fa-running"></i>
+                <p>Selecciona una rutina para comenzar</p>
             </div>
+        </div>
     </div>
 
     <script src="routines.js"></script>
