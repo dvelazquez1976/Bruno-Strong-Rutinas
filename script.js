@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const importBtn = document.getElementById('import-btn');
     const exportBtn = document.getElementById('export-btn');
     const fileInput = document.getElementById('file-input');
+    const resetBtn = document.getElementById('reset-btn');
     
     let timerInterval = null, startTime = 0, elapsedTime = 0;
 
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     exportBtn.addEventListener('click', exportData);
     importBtn.addEventListener('click', () => fileInput.click());
     fileInput.addEventListener('change', importData);
+    resetBtn.addEventListener('click', resetRoutine);
 
     function exportData() {
         const history = localStorage.getItem('workoutHistory');
