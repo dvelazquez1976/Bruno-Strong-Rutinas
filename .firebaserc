@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bruno-strong"
+  },
+  "targets": {
+    "bruno-strong": {
+      "hosting": {
+        "plan-entrena-david": [
+          "plan-entrena-david"
+        ]
+      }
+    }
+  }
+}
