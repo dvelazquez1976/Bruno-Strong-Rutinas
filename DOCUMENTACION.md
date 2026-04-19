@@ -100,7 +100,8 @@ plan-entrena-david/
 ├── package.json                # Dependencias y scripts npm
 ├── vite.config.js              # Configuración del bundler
 ├── eslint.config.js            # Reglas de linting
-├── firebase.json               # Configuración Firebase Hosting
+├── firebase.json               # Configuración Firebase Hosting + Firestore
+├── firestore.rules             # Reglas de seguridad Firestore (producción)
 ├── .firebaserc                 # Alias de proyecto Firebase
 ├── .gitignore
 │
@@ -465,6 +466,9 @@ Cada sesión está estructurada en bloques de ejercicios en supersets o circuits
 
 ```json
 {
+  "firestore": {
+    "rules": "firestore.rules"
+  },
   "hosting": {
     "site": "plan-entrena-david",
     "public": "dist",
@@ -491,8 +495,14 @@ firebase hosting:sites:create plan-entrena-david
 # 4. Compilar
 npm run build
 
-# 5. Desplegar
+# 5. Desplegar hosting + reglas Firestore
 firebase deploy
+
+# Para desplegar solo las reglas Firestore (sin recompilar)
+firebase deploy --only firestore
+
+# Para desplegar solo el hosting (sin tocar las reglas)
+firebase deploy --only hosting
 ```
 
 La URL pública resultante es `https://plan-entrena-david.web.app`.
@@ -503,9 +513,9 @@ Para deploys sucesivos, solo son necesarios los pasos 4 y 5.
 
 ## 14. Reglas de seguridad Firestore
 
-Las reglas actuales están en **modo test** y expiran 30 días después de la creación del proyecto. Antes de esa fecha deben actualizarse en la consola de Firebase (Firestore → Reglas).
+Las reglas de producción están activas y versionadas en el archivo `firestore.rules` del repositorio. Se despliegan automáticamente al ejecutar `firebase deploy`.
 
-**Reglas recomendadas para producción:**
+**Reglas actuales (`firestore.rules`):**
 
 ```
 rules_version = '2';
@@ -519,7 +529,7 @@ service cloud.firestore {
 }
 ```
 
-Esta regla garantiza que cada usuario solo puede leer y escribir sus propios entrenamientos.
+Esta regla garantiza que cada usuario solo puede leer y escribir sus propios entrenamientos. Cualquier modificación a las reglas debe hacerse en `firestore.rules` y desplegarse con `firebase deploy --only firestore`.
 
 ---
 
@@ -530,8 +540,6 @@ Esta regla garantiza que cada usuario solo puede leer y escribir sus propios ent
 **Bundle size:** El bundle de producción supera los 500 KB (980 KB sin comprimir, ~295 KB gzip). Está por encima del umbral de advertencia de Vite. Para reducirlo se podría aplicar code splitting con `React.lazy` + `Suspense` en las páginas.
 
 **Sin tests automatizados:** No existen pruebas unitarias ni de integración. Para añadirlas se recomendaría Vitest + React Testing Library.
-
-**Reglas Firestore en modo test:** Ver sección 14. Actualizar antes de la fecha de expiración.
 
 **Índices Firestore:** Las consultas con `where` + `orderBy` en la misma colección (usadas en `getLastWorkout`) requieren un índice compuesto en Firestore. La primera vez que se ejecute esa consulta Firebase generará un enlace en la consola del navegador para crearlo automáticamente.
 
