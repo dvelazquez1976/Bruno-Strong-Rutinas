@@ -13,12 +13,13 @@ import { getFirestore } from 'firebase/firestore';
 // 5. Copia tu configuracion aqui
 // ====================================================
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROYECTO.firebaseapp.com",
-  projectId: "TU_PROYECTO",
-  storageBucket: "TU_PROYECTO.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyDsSm9He7465Va4xqvBrKEnaqC168b2Vho",
+  authDomain: "bruno-strong.firebaseapp.com",
+  projectId: "bruno-strong",
+  storageBucket: "bruno-strong.firebasestorage.app",
+  messagingSenderId: "102097236836",
+  appId: "1:102097236836:web:331dfd462dfedc2fc70071",
+  measurementId: "G-J0PH975663"
 };
 
 const app = initializeApp(firebaseConfig);
